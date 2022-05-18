@@ -18,6 +18,10 @@ You can download the preprocessed dataset from the below link. I cropped the fac
 The dataset contains 100000 images with facial attributes. 
 https://drive.google.com/drive/folders/1iffYL-rB-3MbqI-TfFFHU6Wc-JaYHgGz?usp=sharing
 
+# Pre_trained weights
+
+
+
 # Model results:
 
 
