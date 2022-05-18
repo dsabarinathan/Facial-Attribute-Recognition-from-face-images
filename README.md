@@ -29,12 +29,15 @@ https://drive.google.com/drive/folders/1iffYL-rB-3MbqI-TfFFHU6Wc-JaYHgGz?usp=sha
 
 # Validation Dataset results
 
+![alt text](https://github.com/sabaridsn/Facial-Attribute-Recognition-from-face-images/blob/main/validation_output_1.png)
+
+
 # Test sample 
 
 I used the bigbangtheory cast image as a testing image. Please find the person's result.
 
 ![alt text](https://github.com/sabaridsn/Facial-Attribute-Recognition-from-face-images/blob/main/testImage.jpg)
 
-![alt text](https://github.com/sabaridsn/Facial-Attribute-Recognition-from-face-images/blob/main/sample_output.png)
+![alt text](https://github.com/sabaridsn/Facial-Attribute-Recognition-from-face-images/blob/main/sample_output_1.png)
 
 
