@@ -45,3 +45,14 @@ I used the bigbangtheory cast image as a testing image. Please find the person's
 ![alt text](https://github.com/sabaridsn/Facial-Attribute-Recognition-from-face-images/blob/main/sample_output_1.png)
 
 
+# Output Video
+![alt text](https://github.com/sabaridsn/Facial-Attribute-Recognition-from-face-images/blob/main/output_video_1.gif)
+
+
+# References:
+  [FaceNet Tensorflow](https://github.com/R4j4n/Face-recognition-Using-Facenet-On-Tensorflow-2.X)
+
+  [Vision Transformer (ViT)](https://arxiv.org/abs/2010.11929)
+  
+  [CelebFaces Attributes (CelebA) Dataset](https://www.kaggle.com/datasets/jessicali9530/celeba-dataset)
+
