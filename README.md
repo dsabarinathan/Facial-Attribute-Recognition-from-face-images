@@ -6,18 +6,33 @@ This is a Keras implementation of a CNN for facial attribute recognition. I trai
 # Dependencies
 - Python3.6+
 
-# Tested on:
+# Tested on
 
 - Ubuntu 16.04, Python 3.6.9, Tensorflow 2.3.0, CUDA 10.01, cuDNN 7.6
 
 
-# Dataset:
+# Dataset
 I trained the face attribute extraction models with [CelebFaces Attributes (CelebA) Dataset](https://www.kaggle.com/datasets/jessicali9530/celeba-dataset)
 
 You can download the preprocessed dataset from the below link. I cropped the faces and converted them into RGB format. 
 The dataset contains 100000 images with facial attributes. 
 https://drive.google.com/drive/folders/1iffYL-rB-3MbqI-TfFFHU6Wc-JaYHgGz?usp=sharing
 
+# Train
+
+```
+
+python train.py --imagepath=/data/imageFile100000.npz --labelpath=/data/labelFile100000.npz
+
+```
+
+# Testing
+
+```
+
+python demo.py
+
+```
 # Pre_trained weights
 
 Please use the below weights for testing.
