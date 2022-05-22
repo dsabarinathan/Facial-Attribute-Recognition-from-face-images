@@ -20,6 +20,8 @@ https://drive.google.com/drive/folders/1iffYL-rB-3MbqI-TfFFHU6Wc-JaYHgGz?usp=sha
 
 # Pre_trained weights
 
+Please use the below weights for testing.
+https://drive.google.com/drive/folders/1NWz2E3b75mO_Ox8tb9d77vBi8dNHUv1T?usp=sharing
 
 
 # Model results:
