@@ -6,7 +6,7 @@ import tensorflow_addons as tfa
 from tensorflow.keras.models import load_model
 from utils import draw_results
 
-model = load_model("pre-trained_weights/model_inception_facial_keypoints.h5",custom_objects={"Adamw":tfa.optimizers.AdamW})
+model = load_model("pre-trained_weights/model_inception_facial_keypoints.h5",custom_objects={"Adamw":tfa.optimizers.AdamW},compile=False) # updated the loading function
 
 
 
