@@ -33,6 +33,15 @@ python train.py --imagepath=/data/imageFile100000.npz --labelpath=/data/labelFil
 python demo.py
 
 ```
+
+# Testing in real time using the webcamera
+
+```
+
+python realtime_testing.py
+
+```
+
 # Pre_trained weights
 
 Please use the below weights for testing.
