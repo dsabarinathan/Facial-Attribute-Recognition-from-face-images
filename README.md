@@ -74,8 +74,274 @@ I used the bigbangtheory cast image as a testing image. Please find the person's
 # Output Video
 ![alt text](https://github.com/sabaridsn/Facial-Attribute-Recognition-from-face-images/blob/main/output_video_1.gif)
 
-# Dcoker Installation Steps: 
+# Docker Installation Steps: 
 
+- Step 1: Download the Pretrained facenet model and create the new folder inside the DockerFiles place it. i.e /DockerFiles/models/
+
+```
+/DockerFiles/models/model_inception_facial_keypoints.h5
+```
+- Step 2: Use the below command for docker compose.
+
+```
+docker-compose up -d
+```
+- Step 3: Run the following the command to build the docker image.
+
+```
+ docker build -t facial_attribute .
+
+```
+- Step 4: Start the detection service. 
+
+```
+ docker run -it facial_attribute
+```
+
+- Step 5: Pass the image for testing. 
+
+```
+curl -X POST -F 'file=@/home/couger/Desktop/1.jpg' http://172.17.0.2:5000/
+
+```
+
+
+- Step 6: JSON results format:
+
+
+```
+{
+  "result": [
+    {
+      "coord": [
+        607,
+        65,
+        711,
+        169
+      ],
+      "face": [
+        {
+          "label": "Attractive",
+          "prob": "0.5497437"
+        },
+        {
+          "label": "Male",
+          "prob": "0.8896191"
+        },
+        {
+          "label": "No_Beard",
+          "prob": "0.92911637"
+        },
+        {
+          "label": "Young",
+          "prob": "0.92061347"
+        }
+      ]
+    },
+    {
+      "coord": [
+        1149,
+        131,
+        1235,
+        218
+      ],
+      "face": [
+        {
+          "label": "Big_Nose",
+          "prob": "0.5611748"
+        },
+        {
+          "label": "Male",
+          "prob": "0.96252704"
+        },
+        {
+          "label": "Mouth_Slightly_Open",
+          "prob": "0.78494644"
+        },
+        {
+          "label": "No_Beard",
+          "prob": "0.5100374"
+        },
+        {
+          "label": "Smiling",
+          "prob": "0.7040582"
+        },
+        {
+          "label": "Young",
+          "prob": "0.8379371"
+        }
+      ]
+    },
+    {
+      "coord": [
+        803,
+        150,
+        889,
+        237
+      ],
+      "face": [
+        {
+          "label": "Attractive",
+          "prob": "0.59744525"
+        },
+        {
+          "label": "Heavy_Makeup",
+          "prob": "0.552807"
+        },
+        {
+          "label": "No_Beard",
+          "prob": "0.986242"
+        },
+        {
+          "label": "Wearing_Lipstick",
+          "prob": "0.692116"
+        },
+        {
+          "label": "Young",
+          "prob": "0.93902016"
+        }
+      ]
+    },
+    {
+      "coord": [
+        976,
+        141,
+        1062,
+        227
+      ],
+      "face": [
+        {
+          "label": "Eyeglasses",
+          "prob": "0.6799438"
+        },
+        {
+          "label": "Male",
+          "prob": "0.7749488"
+        },
+        {
+          "label": "No_Beard",
+          "prob": "0.9461371"
+        },
+        {
+          "label": "Young",
+          "prob": "0.6490406"
+        }
+      ]
+    },
+    {
+      "coord": [
+        179,
+        150,
+        266,
+        237
+      ],
+      "face": [
+        {
+          "label": "Male",
+          "prob": "0.9068607"
+        },
+        {
+          "label": "Mouth_Slightly_Open",
+          "prob": "0.91096807"
+        },
+        {
+          "label": "No_Beard",
+          "prob": "0.623013"
+        },
+        {
+          "label": "Smiling",
+          "prob": "0.8010901"
+        },
+        {
+          "label": "Wearing_Hat",
+          "prob": "0.57096326"
+        },
+        {
+          "label": "Young",
+          "prob": "0.88812125"
+        }
+      ]
+    },
+    {
+      "coord": [
+        446,
+        158,
+        549,
+        261
+      ],
+      "face": [
+        {
+          "label": "Big_Nose",
+          "prob": "0.7039994"
+        },
+        {
+          "label": "Eyeglasses",
+          "prob": "0.87806904"
+        },
+        {
+          "label": "High_Cheekbones",
+          "prob": "0.596"
+        },
+        {
+          "label": "Male",
+          "prob": "0.9493711"
+        },
+        {
+          "label": "Mouth_Slightly_Open",
+          "prob": "0.82170117"
+        },
+        {
+          "label": "No_Beard",
+          "prob": "0.86256987"
+        },
+        {
+          "label": "Smiling",
+          "prob": "0.88448894"
+        }
+      ]
+    },
+    {
+      "coord": [
+        304,
+        170,
+        390,
+        256
+      ],
+      "face": [
+        {
+          "label": "Bangs",
+          "prob": "0.56573707"
+        },
+        {
+          "label": "Eyeglasses",
+          "prob": "0.65550697"
+        },
+        {
+          "label": "High_Cheekbones",
+          "prob": "0.67516124"
+        },
+        {
+          "label": "Mouth_Slightly_Open",
+          "prob": "0.8242004"
+        },
+        {
+          "label": "No_Beard",
+          "prob": "0.9694848"
+        },
+        {
+          "label": "Smiling",
+          "prob": "0.8470793"
+        },
+        {
+          "label": "Young",
+          "prob": "0.6668907"
+        }
+      ]
+    }
+  ]
+}
+
+```
 
 # References:
   [FaceNet Tensorflow](https://github.com/R4j4n/Face-recognition-Using-Facenet-On-Tensorflow-2.X)
