@@ -1,0 +1,10 @@
+version: '3'
+services:
+  model_wrapper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: facialAttribute 
+    volumes:
+      - .:/app
+
