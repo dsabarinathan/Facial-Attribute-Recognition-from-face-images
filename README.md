@@ -74,6 +74,8 @@ I used the bigbangtheory cast image as a testing image. Please find the person's
 # Output Video
 ![alt text](https://github.com/sabaridsn/Facial-Attribute-Recognition-from-face-images/blob/main/output_video_1.gif)
 
+# Dcoker Installation Steps: 
+
 
 # References:
   [FaceNet Tensorflow](https://github.com/R4j4n/Face-recognition-Using-Facenet-On-Tensorflow-2.X)
