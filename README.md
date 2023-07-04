@@ -1,6 +1,8 @@
 
 # Facial Attribute Recognition from face images
 
+[![License: GPL](https://img.shields.io/badge/License-GPL-yellow.svg)](https://opensource.org/licenses/GPL-3.0) ![test](https://img.shields.io/static/v1?label=By&message=Tensorflow&color=red)
+
 This is a Keras implementation of a CNN for facial attribute recognition. I trained Visual Transformer and facenet for facial attribute extraction. 
 
 ## Star History
