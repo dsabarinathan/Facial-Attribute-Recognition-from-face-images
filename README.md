@@ -3,6 +3,10 @@
 
 This is a Keras implementation of a CNN for facial attribute recognition. I trained Visual Transformer and facenet for facial attribute extraction. 
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=dsabarinathan/Facial-Attribute-Recognition-from-face-images&type=Date)](https://star-history.com/#dsabarinathan/Facial-Attribute-Recognition-from-face-images&Date)
+
 # Dependencies
 - Python3.6+
 
