@@ -107,7 +107,7 @@ docker-compose up -d
 - Step 5: Pass the image for testing. 
 
 ```
-curl -X POST -F 'file=@/home/couger/Desktop/1.jpg' http://172.17.0.2:5000/
+curl -X POST -F 'file=@/home/DSN/Desktop/1.jpg' http://172.17.0.2:5000/
 
 ```
 
