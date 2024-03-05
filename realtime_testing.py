@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Mar  5 19:53:59 2024
+
+@author: SABARI
+"""
+
 
 
 import cv2
@@ -5,8 +12,13 @@ import math
 import argparse
 from tensorflow.keras.models import load_model
 import tensorflow_addons as tfa
-
+import dlib
 import numpy as np
+
+detector = dlib.get_frontal_face_detector()
+color_green = (0,255,0)
+line_width = 3
+
 def highlightFace(net, frame, conf_threshold=0.7):
     frameOpencvDnn=frame.copy()
     frameHeight=frameOpencvDnn.shape[0]
@@ -34,7 +46,8 @@ parser.add_argument('--image')
 args=parser.parse_args()
 
 
-model = load_model("pre-trained_weights/model_inception_facial_keypoints.h5",custom_objects={"Adamw":tfa.optimizers.AdamW},compile=False) # updated the loading function
+#model = load_model("pre-trained_weights/model_inception_facial_keypoints.h5",custom_objects={"Adamw":tfa.optimizers.AdamW},compile=False) # updated the loading function
+faceNet = load_model("pre-trained_weights-20230405T090303Z-001/pre-trained_weights/model_face_net_files/",custom_objects={"Adamw":tfa.optimizers.AdamW})
 
 facialList = ['5_o_Clock_Shadow', 'Arched_Eyebrows', 'Attractive',
       'Bags_Under_Eyes', 'Bald', 'Bangs', 'Big_Lips', 'Big_Nose',
@@ -57,30 +70,35 @@ while cv2.waitKey(1)<0 :
         cv2.waitKey()
         break
     
-    resultImg,faceBoxes=highlightFace(faceNet,frame)
-    if not faceBoxes:
+    rgb_image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
+    dets = detector(frame)
+    if not dets:
         print("No face detected")
-
-    for faceBox in faceBoxes:
-        face=frame[max(0,faceBox[1]-padding):
-                   min(faceBox[3]+padding,frame.shape[0]-1),max(0,faceBox[0]-padding)
-                   :min(faceBox[2]+padding, frame.shape[1]-1)]
+        continue
+    
+    for det in dets:
+        coord = [det.left(), det.top(), det.right(), det.bottom()]
+        cropImage = frame[det.top(): det.bottom(),det.left():det.right()]
         
-        image_batch[0] = cv2.resize(face,(128,128))/256
-        output = model.predict(image_batch)
+        
+        image_batch[0] = cv2.resize(cropImage,(128,128))/256
+        output = faceNet.predict(image_batch)
         
 
+        resultImg = cv2.rectangle(rgb_image,(det.left(), det.top()), (det.right(), det.bottom()), color_green, line_width)
 
         position0  = np.where(output[0]>0.5)[0]
         count = 25
         for i2 in range(len(position0)):
             if  "Eyeglasses" == facialList[position0[i2]]:
                 print("Wearing EyeGlasses : Yes")
-                cv2.putText(resultImg,"EyeGlasses :Yes", (faceBox[2],15+count),cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0,255,255), 2, cv2.LINE_AA)
+                cv2.putText(resultImg,"EyeGlasses :Yes", (det.left(),15+count),cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0,255,255), 2, cv2.LINE_AA)
             else:
                 print(str(facialList[position0[i2]])+" "+str(np.round(output[0][position0[i2]],3)))
-                cv2.putText(resultImg,str(facialList[position0[i2]]), (faceBox[2],15+count),cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0,255,255), 2, cv2.LINE_AA)
+                cv2.putText(resultImg,str(facialList[position0[i2]]), (det.left(),15+count),cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0,255,255), 2, cv2.LINE_AA)
             count = count+15
+    resultImg = cv2.cvtColor(resultImg, cv2.COLOR_RGB2BGR)
 
     cv2.imshow("Detecting facial attributes", resultImg)
     
