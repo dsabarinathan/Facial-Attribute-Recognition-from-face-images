@@ -17,12 +17,20 @@ This is a Keras implementation of a CNN for facial attribute recognition. I trai
 - Ubuntu 16.04, Python 3.6.9, Tensorflow 2.3.0, CUDA 10.01, cuDNN 7.6
 
 
-# Dataset
-I trained the face attribute extraction models with [CelebFaces Attributes (CelebA) Dataset](https://www.kaggle.com/datasets/jessicali9530/celeba-dataset)
+# Dataset Preparation Script
 
-You can download the preprocessed dataset from the below link. I cropped the faces and converted them into RGB format. 
-The dataset contains 100000 images with facial attributes. 
-https://drive.google.com/drive/folders/1iffYL-rB-3MbqI-TfFFHU6Wc-JaYHgGz?usp=sharing
+You can find the dataset preparation script below. Feel free to copy and make changes as needed:
+
+[Dataset Preparation Script on Kaggle](https://www.kaggle.com/code/sabarinathan/data-preparation/notebook?scriptVersionId=188886411)
+
+# Dataset
+
+I trained the face attribute extraction models using the [CelebFaces Attributes (CelebA) Dataset](https://www.kaggle.com/datasets/jessicali9530/celeba-dataset).
+
+You can download the preprocessed dataset from the link below. The faces have been cropped and converted to RGB format. The dataset contains 202,599 images with facial attributes, split into 100,000 for training and 50,000 for validation. You can download it from the output section of the Kaggle notebook:
+
+[Download Preprocessed Dataset](https://www.kaggle.com/code/sabarinathan/data-preparation/output?scriptVersionId=188886411)
+
 
 # Train
 
