@@ -121,6 +121,7 @@ def vitNet():
   
 
         checkpoint_filepath = "./model/facenet_weight.h5"
+        model_checkpoint_filepath = "./model/best_model_facenet.h5"
         checkpoint_callback = keras.callbacks.ModelCheckpoint(
             checkpoint_filepath,
             monitor="val_accuracy",
@@ -138,6 +139,7 @@ def vitNet():
         )
     
         self.model.load_weights(checkpoint_filepath)
+        self.model.save(model_checkpoint_filepath)
         _, accuracy = self.model.evaluate(x_test, y_test)
         print(f"Test accuracy: {round(accuracy * 100, 2)}%")
         #print(f"Test top 5 accuracy: {round(top_5_accuracy * 100, 2)}%")
